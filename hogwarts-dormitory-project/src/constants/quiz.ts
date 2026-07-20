@@ -8,10 +8,10 @@ export const HOUSE_LABELS: Record<House, string> = {
 }
 
 export const HOUSE_COMMENTS: Record<House, string> = {
-  Gryffindor: 'グリフィンドール生のあなたは、きっと勇敢で決断力のある挑戦者タイプかもしれないね！',
-  Ravenclaw: 'レイブンクロー生のあなたは、知的で探究心あふれるひらめきタイプかも！',
-  Hufflepuff: 'ハッフルパフ生のあなたは、思いやりにあふれた誠実なサポーターかもしれないね！',
-  Slytherin: 'スリザリン生のあなたは、きっと目標達成に強い戦略家かも！'
+  Gryffindor: 'グリフィンドール生のあなたは、きっと困難な状況でも果敢に立ち向かえる勇敢なタイプかも！',
+  Ravenclaw: 'レイブンクロー生のあなたは、知的で探究心にあふれる、ユニークなひらめきタイプかもしれないね！',
+  Hufflepuff: 'ハッフルパフ生のあなたは、努力家で仲間思いなタイプかもしれないね！',
+  Slytherin: 'スリザリン生のあなたは、きっと自尊心が高い、野心家タイプかも！蛇語を話せるかも！？'
 }
 
 export const DEFAULT_HOUSE: House = 'Gryffindor'
@@ -108,10 +108,10 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 9,
     text: '好きな魔法動物は？',
     options: [
+			{ label: '二フラー', house: 'Hufflepuff' },
       { label: 'ヘドウィグ', house: 'Gryffindor' },
-      { label: 'ヒッポグリフ', house: 'Ravenclaw' },
-      { label: '二フラー', house: 'Hufflepuff' },
-      { label: 'セストラル', house: 'Slytherin' }
+      { label: 'セストラル', house: 'Slytherin' },
+			{ label: 'ヒッポグリフ', house: 'Ravenclaw' }
     ]
   }
 ]

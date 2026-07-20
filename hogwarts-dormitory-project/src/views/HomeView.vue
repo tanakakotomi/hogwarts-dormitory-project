@@ -39,7 +39,6 @@ function handleSelected(house: House) {
       :house="quizStore.resultHouse"
       :house-label="quizStore.resultHouseLabel"
       :comment="quizStore.resultComment"
-      :points="quizStore.housePoints"
       :characters="quizStore.filteredCharacters"
       :is-loading="quizStore.isLoadingCharacters"
       :error="quizStore.loadError"
@@ -55,63 +54,3 @@ function handleSelected(house: House) {
     </ResultDisplay>
   </div>
 </template>
-
-<style scoped>
-.page {
-  margin: 0 auto;
-  max-width: 980px;
-}
-
-.hero-row {
-  align-items: center;
-  display: flex;
-  gap: clamp(0.6rem, 2vw, 1.2rem);
-  justify-content: center;
-  margin-bottom: 0.5rem;
-}
-
-.page-title {
-  color: #f8e8b8;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  letter-spacing: 0.04em;
-  margin: 0;
-  text-align: left;
-}
-
-.logo {
-  display: block;
-  height: auto;
-  object-fit: contain;
-  width: clamp(56px, 10vw, 70px);
-}
-
-.page-subtitle {
-  color: #e6dcb9;
-  font-size: 1rem;
-  margin-bottom: 1.4rem;
-  text-align: center;
-}
-
-@media (max-width: 560px) {
-  .hero-row {
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-
-  .page-title {
-    text-align: center;
-  }
-}
-
-.result-heading {
-  color: #2d1f13;
-  font-size: 1.8rem;
-  font-weight: 800;
-}
-
-.result-description {
-  color: #4f3a25;
-  margin-top: 0.35rem;
-}
-</style>
