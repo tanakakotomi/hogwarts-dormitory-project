@@ -12,11 +12,13 @@ const emit = defineEmits<{
   selected: [house: House]
 }>()
 
+const baseUrl = import.meta.env.BASE_URL
+
 const optionImageMap: Record<string, string> = {
-  ヘドウィグ: '/images/Hedwig.png',
-  ヒッポグリフ: '/images/Hippogriff.png',
-  二フラー: '/images/Niffler.png',
-  セストラル: '/images/Thestral.png'
+  ヘドウィグ: `${baseUrl}images/Hedwig.png`,
+  ヒッポグリフ: `${baseUrl}images/Hippogriff.png`,
+  二フラー: `${baseUrl}images/Niffler.png`,
+  セストラル: `${baseUrl}images/Thestral.png`
 }
 </script>
 
