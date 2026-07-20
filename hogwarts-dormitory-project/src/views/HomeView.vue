@@ -6,7 +6,7 @@ import { useQuizStore } from '@/stores/quiz'
 import type { House } from '@/types/quiz'
 
 const quizStore = useQuizStore()
-const logoImage = "/images/bertie_Bott's_every_flavour_beans.png"
+const logoImage = `${import.meta.env.BASE_URL}images/bertie_Bott's_every_flavour_beans.png`
 
 onMounted(() => {
   quizStore.fetchCharacters()
