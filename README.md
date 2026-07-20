@@ -15,30 +15,30 @@
 
 - Store（Pinia）: 「どう計算するか」「どうデータを取得するか」というビジネスロジックを担当
 - Components: 「どう表示するか」という見た目の担当
-- 効果: コードが巨大化しても管理しやすい構成を維持しやすい
+- 効果: 役割を分けることで、あとから修正しやすくなる
 
 2. getters（Setup Storeでは computed 相当）
 
-- `filteredCharacters` をstore側に置くことで、どのコンポーネントからでも「結果の寮のキャラ一覧」を参照しやすい
+- `filteredCharacters` をStore側に置くと、どのコンポーネントからでも同じ結果を使える
 
 3. actions
 
-- API通信を actions に隠蔽することで、コンポーネント側は `store.fetchCharacters()` の呼び出しに集中できる
+- API通信を actions にまとめると、コンポーネント側は `store.fetchCharacters()` を呼ぶだけでよい
 
 4. `v-if` と `v-for`
 
-- `v-if` で診断画面と結果画面を切り替え
-- `v-for` で選択肢やAPI取得キャラクター一覧をループ表示
+- `v-if` で診断画面と結果画面を切り替える
+- `v-for` で選択肢やAPI取得キャラクター一覧をくり返し表示する
 
 ## 状態管理とデータ取得
 
-- Pinia: 状態管理とAPI取得データの一元管理。取得済みデータはアプリ実行中に再利用可能
-- props: 親（`HomeView`）から `ResultDisplay` へ渡し、`ResultDisplay` から `CharacterCard` へ必要データを渡す
+- Pinia: 状態管理とAPI取得データをまとめて管理する。取得済みデータはアプリ実行中に再利用できる
+- props: 親（`HomeView`）から子コンポーネントへデータを渡すために使う
 - emits:
   - 子（`QuizQuestion`）でボタン押下時に「選択した寮」を親へ通知
   - 親（`HomeView`）が通知を受けてPiniaの状態を更新
-- slot: `ResultDisplay` の枠組みを保ったまま、タイトルや補助文言を差し替え可能
-- axios: キャラクターデータ取得に使用
+- slot: `ResultDisplay` の形を変えずに、表示する文言を差し替えられる
+- axios: キャラクターデータを取得するために使う
 
 ## 採用APIスタイル
 
@@ -47,9 +47,9 @@
 
 ### Composition APIを採用した理由
 
-- ロジックのまとまり単位で記述できるため、質問進行・ポイント計算・API取得の責務を分離しやすい。
-- Storeとの親和性が高く、状態・算出値・操作（state/getters/actions）を見通しよく管理できる。
-- 機能追加時に関連コードを追いやすく、コンポーネント分割後も保守しやすい。
+- ロジックをまとまりごとに書けるので、質問進行・ポイント計算・API取得を分けやすい。
+- Storeと相性がよく、state/getters/actions を見通しよく管理できる。
+- 機能を追加するときも、どこを直せばよいか分かりやすい。
 
 ## コンポーネント構成
 
@@ -60,3 +60,9 @@
 - `src/stores/quiz.ts`: ポイント計算、進行状態、API取得、結果抽出を管理
 - `src/types/quiz.ts`: 型定義
 - `src/constants/quiz.ts`: 質問データと定数
+
+## CSSの役割分担
+
+- `src/assets/base.css`: 画面全体の土台となる共通設定
+- `src/assets/components.css`: 各コンポーネントの見た目をまとめたCSS
+- `src/assets/main.css`: `base.css` と `components.css` を読み込む入口

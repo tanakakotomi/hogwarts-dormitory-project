@@ -9,6 +9,7 @@ defineProps<{
 <template>
   <article class="card">
     <div class="portrait-wrap">
+      <!-- v-ifで画像データがある要素だけ表示 -->
       <img
         v-if="character.image"
         :src="character.image"

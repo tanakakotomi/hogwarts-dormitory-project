@@ -14,7 +14,6 @@ export const HOUSE_COMMENTS: Record<House, string> = {
   Slytherin: 'スリザリン生のあなたは、きっと自尊心が高い、野心家タイプかも！蛇語を話せるかも！？'
 }
 
-// デフォルトの寮を定義
 export const DEFAULT_HOUSE: House = 'Gryffindor'
 
 export const INITIAL_HOUSE_POINTS: HousePoints = {
@@ -51,7 +50,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: [
       { label: 'アイデア担当', house: 'Ravenclaw' },
       { label: 'サポート役', house: 'Hufflepuff' },
-      { label: 'リーダー', house: 'Slytherin' },
+      { label: 'リーダー役', house: 'Slytherin' },
       { label: '盛り上げ役', house: 'Gryffindor' }
     ]
   },
