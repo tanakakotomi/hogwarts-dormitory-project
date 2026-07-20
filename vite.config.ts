@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/hogwarts-dormitory-project/' : '/',
+  base: command === 'build' ? './' : '/',
 
   plugins: [
     vue(),
