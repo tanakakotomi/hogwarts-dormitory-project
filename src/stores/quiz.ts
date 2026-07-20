@@ -95,7 +95,8 @@ export const useQuizStore = defineStore('quiz', () => {
     const tiedHouses = ranking.filter((item) => item.points === topPoints)
     const selectedIndex = Math.floor(Math.random() * tiedHouses.length)
 
-    return tiedHouses[selectedIndex]?.house ?? 'Gryffindor'
+    // ランダムに選ばれた寮を返す。もし何も選ばれなかった場合はデフォルトの寮（Gryffindor）を返す。
+    return tiedHouses[selectedIndex]?.house ?? DEFAULT_HOUSE
   }
 
   function answerQuestion(house: House) {
