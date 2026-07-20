@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Character } from '../stores/quiz'
+import type { Character } from '@/types/quiz'
 
 defineProps<{
   character: Character

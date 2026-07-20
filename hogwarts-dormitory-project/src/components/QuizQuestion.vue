@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import type { House } from '../stores/quiz'
-
-interface Option {
-  label: string
-  house: House
-}
+import type { House, QuizOption } from '@/types/quiz'
 
 defineProps<{
   questionNumber: number
   totalQuestions: number
   questionText: string
-  options: Option[]
+  options: QuizOption[]
 }>()
 
 const emit = defineEmits<{

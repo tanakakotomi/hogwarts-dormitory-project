@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import CharacterCard from './CharacterCard.vue'
-import type { Character, House } from '../stores/quiz'
+import CharacterCard from '@/components/CharacterCard.vue'
+import type { Character, House, HousePoints } from '@/types/quiz'
 
 defineProps<{
   house: House
   houseLabel: string
   comment: string
-  points: Record<House, number>
+  points: HousePoints
   characters: Character[]
   isLoading: boolean
   error: string
@@ -20,12 +20,9 @@ const emit = defineEmits<{
 <template>
   <section class="result-panel">
     <div class="frame">
+      <!-- 寮名 -->
       <slot name="title">
-        <h2 class="result-title">あなたの寮は {{ houseLabel }}</h2>
-      </slot>
-
-      <slot name="house-name">
-        <p class="result-subtitle">診断結果: {{ house }}</p>
+        <h2 class="result-title">{{ houseLabel }}</h2>
       </slot>
 
       <p class="result-comment">{{ comment }}</p>
@@ -38,6 +35,11 @@ const emit = defineEmits<{
       <p>ハッフルパフ: <strong>{{ points.Hufflepuff }}</strong></p>
       <p>スリザリン: <strong>{{ points.Slytherin }}</strong></p>
     </div>
+    
+    <!-- 同じ寮の仲間たち -->
+    <slot name="house-name">
+      <p class="result-subtitle">{{ house }}</p>
+    </slot>
 
     <p v-if="isLoading" class="status">キャラクターを召喚中...</p>
     <p v-else-if="error" class="status error">{{ error }}</p>

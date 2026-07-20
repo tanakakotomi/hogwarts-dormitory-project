@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import QuizQuestion from '../components/QuizQuestion.vue'
-import ResultDisplay from '../components/ResultDisplay.vue'
-import { useQuizStore } from '../stores/quiz'
+import QuizQuestion from '@/components/QuizQuestion.vue'
+import ResultDisplay from '@/components/ResultDisplay.vue'
+import { useQuizStore } from '@/stores/quiz'
+import type { House } from '@/types/quiz'
 
 const quizStore = useQuizStore()
 const logoImage = "/images/bertie_Bott's_every_flavour_beans.png"
@@ -11,7 +12,7 @@ onMounted(() => {
   quizStore.fetchCharacters()
 })
 
-function handleSelected(house: 'Gryffindor' | 'Ravenclaw' | 'Hufflepuff' | 'Slytherin') {
+function handleSelected(house: House) {
   quizStore.answerQuestion(house)
 }
 </script>
