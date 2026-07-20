@@ -133,8 +133,8 @@ export const useQuizStore = defineStore('quiz', () => {
       options: [
         { label: 'ヘドウィグ', house: 'Gryffindor' },
         { label: 'ヒッポグリフ', house: 'Ravenclaw' },
-        { label: '二フラー', house: 'Slytherin' },
-        { label: 'セストラル', house: 'Hufflepuff' }
+        { label: '二フラー', house: 'Hufflepuff' },
+        { label: 'セストラル', house: 'Slytherin' }
       ]
     }
   ])
