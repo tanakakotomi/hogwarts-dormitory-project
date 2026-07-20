@@ -36,7 +36,6 @@ function handleSelected(house: House) {
 
     <ResultDisplay
       v-else
-      :house="quizStore.resultHouse"
       :house-label="quizStore.resultHouseLabel"
       :comment="quizStore.resultComment"
       :characters="quizStore.filteredCharacters"

@@ -28,6 +28,7 @@ const optionImageMap: Record<string, string> = {
     <h2 class="question-title">{{ questionText }}</h2>
 
     <div class="choices" :class="{ 'choices--two-column': questionNumber === 9 }">
+      <!-- v-forで選択肢を表示し、クリック時に選択した要素をemitで親コンポーネントへ渡す -->
       <button
         v-for="option in options"
         :key="option.label"

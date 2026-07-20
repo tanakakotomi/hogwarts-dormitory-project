@@ -3,6 +3,22 @@
   max-width: 980px;
 }
 
+@media (hover: hover) and (pointer: fine) {
+
+  .page,
+  .page *,
+  .page button,
+  .page a,
+  .page input,
+  .page select,
+  .page textarea,
+  .page label,
+  .page summary,
+  .page [role='button'] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ctext x='3' y='36' font-size='36'%3E%F0%9F%A7%B9%3C/text%3E%3C/svg%3E") 6 36, auto;
+  }
+}
+
 .hero-row {
   align-items: center;
   display: flex;
@@ -24,7 +40,7 @@
   display: block;
   height: auto;
   object-fit: contain;
-  width: clamp(56px, 10vw, 70px);
+  width: 50px;
 }
 
 .page-subtitle {
@@ -53,7 +69,7 @@
 
 .result-description {
   color: #4f3a25;
-  margin-top: 0.35rem;
+  margin: 0.35rem 0;
 }
 
 .question-panel {
@@ -136,10 +152,12 @@
   }
 }
 
-.choice-button:hover {
-  background: #f9f0d8;
-  box-shadow: 0 8px 18px rgb(0 0 0 / 14%);
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .choice-button:hover {
+    background: #f9f0d8;
+    box-shadow: 0 8px 18px rgb(0 0 0 / 14%);
+    transform: translateY(-1px);
+  }
 }
 
 .choice-button:active {
@@ -196,7 +214,8 @@
 }
 
 .restart {
-  background: #a85548;;
+  background: #a85548;
+  ;
   border: none;
   border-radius: 10px;
   color: #f7ecd0;
@@ -209,7 +228,8 @@
 }
 
 .restart:hover {
-  background: #65342d;;
+  background: #65342d;
+  ;
 }
 
 .card {

@@ -29,9 +29,9 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     text: '困っている人がいたら、あなたならどうする？',
     options: [
       { label: '相手が安心できるよう寄り添う', house: 'Hufflepuff' },
-      { label: 'すぐ助けに行く', house: 'Gryffindor' },
-      { label: '他の人も巻き込んで効率よく解決する', house: 'Slytherin' },
-      { label: 'どう助けるのが一番良いか考える', house: 'Ravenclaw' }
+      { label: 'すぐさま助けに行く', house: 'Gryffindor' },
+      { label: '少し面倒に思う', house: 'Slytherin' },
+      { label: 'どう助けるのが一番良いか一緒に考える', house: 'Ravenclaw' }
     ]
   },
   {
@@ -39,9 +39,9 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     text: '新しいことを始めるときは？',
     options: [
       { label: '情報を集めてから始める', house: 'Ravenclaw' },
-      { label: '成功する方法を考えてから動く', house: 'Slytherin' },
-      { label: 'とりあえず挑戦する', house: 'Gryffindor' },
-      { label: '周りと相談して決める', house: 'Hufflepuff' }
+      { label: '確実に成功する方法を考えてから動く', house: 'Slytherin' },
+      { label: 'とりあえず挑戦してみる', house: 'Gryffindor' },
+      { label: '周りと相談してから決める', house: 'Hufflepuff' }
     ]
   },
   {
@@ -70,7 +70,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: [
       { label: '呪文学', house: 'Ravenclaw' },
       { label: '闇の魔術に対する防衛術', house: 'Gryffindor' },
-      { label: '魔法薬学', house: 'Slytherin' },
+      { label: '変身術', house: 'Slytherin' },
       { label: '魔法生物飼育学', house: 'Hufflepuff' }
     ]
   },
@@ -78,7 +78,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     id: 6,
     text: '休日にしたいことは？',
     options: [
-      { label: '家族や友達と過ごす', house: 'Hufflepuff' },
+      { label: '家族や友達とのんびり過ごす', house: 'Hufflepuff' },
       { label: '自分磨きや勉強をする', house: 'Slytherin' },
       { label: '本や映画を楽しむ', house: 'Ravenclaw' },
       { label: 'キャンプやハイキングに出かける', house: 'Gryffindor' }
@@ -96,7 +96,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 8,
-    text: 'お宝を見つけたら？',
+    text: 'お宝を見つけたらどうする？',
     options: [
       { label: 'まず触ってみる', house: 'Gryffindor' },
       { label: 'みんなに知らせる', house: 'Hufflepuff' },

@@ -10,7 +10,6 @@ import {
 } from '@/constants/quiz'
 import { HOUSES, type Character, type House, type HousePoints } from '@/types/quiz'
 
-// APIのURLを定義
 const API_URL = 'https://hp-api.onrender.com/api/characters'
 
 interface CharacterApiItem {
@@ -25,11 +24,11 @@ function createInitialHousePoints(): HousePoints {
   return { ...INITIAL_HOUSE_POINTS }
 }
 
-/**
- * クイズの状態を管理するPiniaストア
- * 質問一覧、寮ごとのポイント、現在の質問番号、
- * 診断の完了状態、キャラクターデータを管理
- */
+  /**
+   * クイズの状態を管理するPiniaストア。
+   * 質問一覧、寮ごとのポイント、現在の質問番号、
+   * 診断の完了状態、キャラクターデータを管理する。
+   */
 export const useQuizStore = defineStore('quiz', () => {
   const questions = QUIZ_QUESTIONS
 
@@ -56,9 +55,7 @@ export const useQuizStore = defineStore('quiz', () => {
     )
   )
 
-	/**
-	 * キャラクターデータをAPIから取得
-	 */
+  /** キャラクターデータをAPIから取得する */
   async function fetchCharacters() {
     if (characters.value.length > 0 || isLoadingCharacters.value) {
       return
@@ -86,6 +83,7 @@ export const useQuizStore = defineStore('quiz', () => {
     }
   }
 
+  /** 診断結果の寮を決定する。ポイントが同点ならランダムで選ぶ。 */
   function decideResultHouse(): House {
     const ranking = HOUSES
       .map((house) => ({ house, points: housePoints.value[house] }))
@@ -95,7 +93,8 @@ export const useQuizStore = defineStore('quiz', () => {
     const tiedHouses = ranking.filter((item) => item.points === topPoints)
     const selectedIndex = Math.floor(Math.random() * tiedHouses.length)
 
-    return tiedHouses[selectedIndex]?.house ?? 'Gryffindor'
+    // 何も選ばれなかった場合はデフォルトの寮を返す。
+    return tiedHouses[selectedIndex]?.house ?? DEFAULT_HOUSE
   }
 
   function answerQuestion(house: House) {
