@@ -24,25 +24,29 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: hogwarts-dormitory-project/package-lock.json
 
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
+        working-directory: hogwarts-dormitory-project
 
-      - run: npm run build
+      - name: Build
+        run: npm run build
+        working-directory: hogwarts-dormitory-project
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: hogwarts-dormitory-project/dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-    needs: build
-
-    runs-on: ubuntu-latest
 
     steps:
       - id: deployment
