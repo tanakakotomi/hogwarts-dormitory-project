@@ -23,6 +23,7 @@ defineProps<{
     <div class="meta">
       <h4 class="name">{{ character.name }}</h4>
       <p class="actor">俳優: {{ character.actor }}</p>
+      <p v-if="character.patronus" class="patronus">パトローナス: {{ character.patronus }}</p>
     </div>
   </article>
 </template>
