@@ -8,6 +8,7 @@ export interface Character {
   house: string
   image: string
   actor: string
+  patronus: string
 }
 
 export interface QuizOption {

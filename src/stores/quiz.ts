@@ -18,6 +18,7 @@ interface CharacterApiItem {
   house?: string
   image?: string
   actor?: string
+  patronus?: string
 }
 
 function createInitialHousePoints(): HousePoints {
@@ -73,7 +74,8 @@ export const useQuizStore = defineStore('quiz', () => {
         name: item.name || '名前不明',
         house: item.house || '',
         image: item.image || '',
-        actor: item.actor || '不明'
+        actor: item.actor || '不明',
+        patronus: item.patronus || ''
       }))
     } catch (error) {
       loadError.value = 'キャラクターデータの取得に失敗しました。時間をおいて再試行してください。'
