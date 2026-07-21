@@ -4,7 +4,10 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-
+  /* apply to entire document and common interactive elements; use !important to override other cursor rules */
+  html,
+  body,
+  #app,
   .page,
   .page *,
   .page button,
@@ -14,8 +17,10 @@
   .page textarea,
   .page label,
   .page summary,
-  .page [role='button'] {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ctext x='3' y='36' font-size='36'%3E%F0%9F%A7%B9%3C/text%3E%3C/svg%3E") 6 36, auto;
+  .page [role='button'],
+  img,
+  svg {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ctext x='3' y='36' font-size='36'%3E%F0%9F%A7%B9%3C/text%3E%3C/svg%3E") 6 36, auto !important;
   }
 }
 
@@ -177,6 +182,18 @@
   border-radius: 12px;
   margin-bottom: 1rem;
   padding: 1rem;
+}
+
+.house-emblem-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+
+.house-emblem {
+  height: 130px;
+  width: auto;
+  object-fit: contain;
 }
 
 .result-title {

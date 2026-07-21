@@ -2,7 +2,13 @@
 import CharacterCard from '@/components/CharacterCard.vue'
 import type { Character } from '@/types/quiz'
 
-defineProps<{
+const emit = defineEmits<{
+  restart: []
+}>()
+
+import { computed } from 'vue'
+
+const props = defineProps<{
   houseLabel: string
   comment: string
   characters: Character[]
@@ -10,14 +16,33 @@ defineProps<{
   error: string
 }>()
 
-const emit = defineEmits<{
-  restart: []
-}>()
+const emblemSrc = computed(() => {
+  if (!props.houseLabel) return ''
+  const key = props.houseLabel.toLowerCase().trim()
+  // support English and common Japanese names
+  if (key.includes('gryff') || key.includes('グリ')) {
+    return `${import.meta.env.BASE_URL}images/Gryffindor.png`
+  }
+  if (key.includes('huffle') || key.includes('ハッフ')) {
+    return `${import.meta.env.BASE_URL}images/Hufflepuff.png`
+  }
+  if (key.includes('raven') || key.includes('レイブ') || key.includes('レイブンク')) {
+    return `${import.meta.env.BASE_URL}images/Ravenclaw.png`
+  }
+  if (key.includes('slyth') || key.includes('スリ')) {
+    return `${import.meta.env.BASE_URL}images/Slytherin.png`
+  }
+  return ''
+})
 </script>
 
 <template>
   <section class="result-panel">
     <div class="frame">
+      <div class="house-emblem-wrap">
+        <img v-if="emblemSrc" :src="emblemSrc" :alt="`${houseLabel} emblem`" class="house-emblem" />
+      </div>
+
       <!-- slotを使って、親コンポーネントから日本語の寮名を受け取る -->
       <slot name="title">
         <h2 class="result-title">{{ houseLabel }}</h2>
