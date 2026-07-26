@@ -16,7 +16,7 @@ const baseUrl = import.meta.env.BASE_URL
 
 const optionImageMap: Record<string, string> = {
   ヘドウィグ: `${baseUrl}images/Hedwig.png`,
-  ヒッポグリフ: `${baseUrl}images/Hippogriff.png`,
+  マンドレイク: `${baseUrl}images/Mandrake.png`,
   二フラー: `${baseUrl}images/Niffler.png`,
   フォークス: `${baseUrl}images/Fawkes.webp`,
   ドビー: `${baseUrl}images/Dobby.png`,
