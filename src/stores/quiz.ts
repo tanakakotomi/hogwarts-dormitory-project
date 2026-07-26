@@ -37,6 +37,7 @@ export const useQuizStore = defineStore('quiz', () => {
 
   const currentQuestionIndex = ref(0)
   const quizFinished = ref(false)
+  const pendingSlytherin = ref(false)
   const resultHouse = ref<House>(DEFAULT_HOUSE)
   const characters = ref<Character[]>([])
   const isLoadingCharacters = ref(false)
@@ -107,7 +108,21 @@ export const useQuizStore = defineStore('quiz', () => {
       return
     }
 
-    resultHouse.value = decideResultHouse()
+    const selected = decideResultHouse()
+    // If the selected house is Slytherin, show a confirmation (10th question)
+    if (selected === 'Slytherin') {
+      pendingSlytherin.value = true
+      // keep resultHouse as default until user confirms
+      return
+    }
+
+    resultHouse.value = selected
+    quizFinished.value = true
+  }
+
+  function confirmSlytherin() {
+    resultHouse.value = 'Slytherin'
+    pendingSlytherin.value = false
     quizFinished.value = true
   }
 
@@ -116,6 +131,7 @@ export const useQuizStore = defineStore('quiz', () => {
     currentQuestionIndex.value = 0
     quizFinished.value = false
     resultHouse.value = DEFAULT_HOUSE
+    pendingSlytherin.value = false
   }
 
   return {
@@ -128,11 +144,13 @@ export const useQuizStore = defineStore('quiz', () => {
     loadError,
     currentQuestion,
     resultHouse,
+    pendingSlytherin,
     resultHouseLabel,
     resultComment,
     filteredCharacters,
     fetchCharacters,
     answerQuestion,
+    confirmSlytherin,
     resetQuiz
   }
 })

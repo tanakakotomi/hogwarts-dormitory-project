@@ -16,21 +16,36 @@ const props = defineProps<{
   error: string
 }>()
 
+const houseLabel = computed(() => props.houseLabel)
+
+const isAzkaban = computed(() => {
+  const key = (props.houseLabel || '').toLowerCase()
+  return key.includes('azkaban') || props.houseLabel?.includes('アズカバン')
+})
+
+const isSlytherin = computed(() => {
+  const key = (props.houseLabel || '').toLowerCase()
+  return key.includes('slyth') || props.houseLabel?.includes('スリザリン')
+})
+
 const emblemSrc = computed(() => {
   if (!props.houseLabel) return ''
   const key = props.houseLabel.toLowerCase().trim()
   // support English and common Japanese names
-  if (key.includes('gryff') || key.includes('グリ')) {
+  if (key.includes('gryff') || key.includes('グリフィンドール')) {
     return `${import.meta.env.BASE_URL}images/Gryffindor.png`
   }
-  if (key.includes('huffle') || key.includes('ハッフ')) {
+  if (key.includes('huffle') || key.includes('ハッフルパフ')) {
     return `${import.meta.env.BASE_URL}images/Hufflepuff.png`
   }
-  if (key.includes('raven') || key.includes('レイブ') || key.includes('レイブンク')) {
+  if (key.includes('raven') || key.includes('レイブンクロー')) {
     return `${import.meta.env.BASE_URL}images/Ravenclaw.png`
   }
-  if (key.includes('slyth') || key.includes('スリ')) {
+  if (key.includes('slyth') || key.includes('スリザリン')) {
     return `${import.meta.env.BASE_URL}images/Slytherin.png`
+  }
+  if (key.includes('azkaban') || key.includes('アズカバン')) {
+    return `${import.meta.env.BASE_URL}images/Azkaban.png`
   }
   return ''
 })
@@ -53,7 +68,8 @@ const emblemSrc = computed(() => {
 
     <!-- slotを使って、同じ寮の仲間たちという文言を受け取る -->
     <slot name="house-name">
-      <p class="result-description">同じ寮の仲間たち</p>
+      <p v-if="isAzkaban" class="result-description">アズカバンでベラトリックス・レストレンジたちと一緒に生活しよう！</p>
+      <p v-else class="result-description">同じ寮の仲間たち</p>
     </slot>
     
     <p v-if="isLoading" class="status">キャラクターを召喚中...</p>

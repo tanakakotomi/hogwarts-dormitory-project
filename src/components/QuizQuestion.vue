@@ -18,7 +18,9 @@ const optionImageMap: Record<string, string> = {
   ヘドウィグ: `${baseUrl}images/Hedwig.png`,
   ヒッポグリフ: `${baseUrl}images/Hippogriff.png`,
   二フラー: `${baseUrl}images/Niffler.png`,
-  セストラル: `${baseUrl}images/Thestral.png`
+  セストラル: `${baseUrl}images/Thestral.png`,
+  ドビー: `${baseUrl}images/Dobby.png`,
+  ディメンター: `${baseUrl}images/Dementor.png`
 }
 </script>
 

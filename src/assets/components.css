@@ -74,7 +74,7 @@
 
 .result-description {
   color: #4f3a25;
-  margin: 0.35rem 0;
+  margin: 1rem 0;
 }
 
 .question-panel {
@@ -111,8 +111,8 @@
 }
 
 .choices--two-column .choice-icon {
-  height: clamp(92px, 11vw, 120px);
-  width: clamp(92px, 11vw, 120px);
+  height: clamp(92px, 20vw, 120px);
+  width: clamp(92px, 20vw, 120px);
 }
 
 .choices--two-column .choice-button {
@@ -247,6 +247,18 @@
 .restart:hover {
   background: #65342d;
   ;
+}
+
+.slytherin-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.slytherin-img {
+  max-width: 320px;
+  width: 60%;
+  height: auto;
 }
 
 .card {
