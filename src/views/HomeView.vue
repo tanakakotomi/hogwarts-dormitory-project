@@ -51,10 +51,10 @@ function handleSelected(house: House) {
           >
             {{ opt.label }}
             <div v-if="idx === 0" class="slytherin-wrap">
-              <img :src="noSlytherinSrc" alt="No Slytherin" class="no-slytherin-img" />
+              <img :src="noSlytherinSrc" alt="No Slytherin" class="slytherin-img" />
             </div>
             <div v-if="idx === 1" class="slytherin-wrap">
-              <img :src="yesSlytherinSrc" alt="Yes Slytherin" class="no-slytherin-img" />
+              <img :src="yesSlytherinSrc" alt="Yes Slytherin" class="slytherin-img" />
             </div>
           </button>
       </div>
