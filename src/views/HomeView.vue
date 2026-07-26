@@ -39,7 +39,6 @@ function handleSelected(house: House) {
 
     <!-- Slytherin confirmation as 10th question -->
     <div v-else-if="quizStore.pendingSlytherin" class="question-panel">
-      <p class="question-count">質問 10 / 10</p>
         <h2 class="question-title">{{ SLYTHERIN_CONFIRM_TEXT }}</h2>
       <div class="choices choices--two-column">
           <button
