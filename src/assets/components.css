@@ -111,8 +111,8 @@
 }
 
 .choices--two-column .choice-icon {
-  height: clamp(92px, 20vw, 120px);
-  width: clamp(92px, 20vw, 120px);
+  height: clamp(140px, 20vw, 120px);
+  width: clamp(140px, 20vw, 120px);
 }
 
 .choices--two-column .choice-button {
