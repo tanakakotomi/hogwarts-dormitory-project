@@ -110,6 +110,13 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.choices--horizontal {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .choices--two-column .choice-icon {
   height: clamp(140px, 20vw, 120px);
   width: clamp(140px, 20vw, 120px);
@@ -259,6 +266,12 @@
   max-width: 320px;
   width: 60%;
   height: auto;
+}
+
+.wizengamot-img {
+  display: block;
+  max-width: 150px;
+  margin: 0 auto 10px auto;
 }
 
 .card {

@@ -38,6 +38,8 @@ export const useQuizStore = defineStore('quiz', () => {
   const currentQuestionIndex = ref(0)
   const quizFinished = ref(false)
   const pendingSlytherin = ref(false)
+  const pendingAzkaban = ref(false)
+  const azkabanAppealNeeded = ref(false)
   const resultHouse = ref<House>(DEFAULT_HOUSE)
   const characters = ref<Character[]>([])
   const isLoadingCharacters = ref(false)
@@ -101,6 +103,7 @@ export const useQuizStore = defineStore('quiz', () => {
   }
 
   function answerQuestion(house: House) {
+    console.log('answerQuestion called with', house)
     housePoints.value[house] += 1
 
     if (currentQuestionIndex.value < questions.length - 1) {
@@ -109,10 +112,15 @@ export const useQuizStore = defineStore('quiz', () => {
     }
 
     const selected = decideResultHouse()
-    // If the selected house is Slytherin, show a confirmation (10th question)
+    // 選択された寮がスリザリンの場合、最終確定前に確認画面を表示する
     if (selected === 'Slytherin') {
       pendingSlytherin.value = true
-      // keep resultHouse as default until user confirms
+      // ユーザーが確認するまで `resultHouse` は変更せず保留にする
+      return
+    }
+    // 選択された寮がアズカバンの場合、裁判（審理）画面を表示する
+    if (selected === 'Azkaban') {
+      pendingAzkaban.value = true
       return
     }
 
@@ -126,12 +134,41 @@ export const useQuizStore = defineStore('quiz', () => {
     quizFinished.value = true
   }
 
+  function processAzkabanTrial() {
+    // 裁判の結果、50%の確率でアズカバン行きになる
+    // ランダムに判定を行い、送致された場合は `resultHouse` を 'Azkaban' に設定して `quizFinished` を true にする
+    // 一つ目の質問画面に戻る場合は `azkabanAppealNeeded` を true に設定する
+    const sent = Math.random() < 0.5
+    pendingAzkaban.value = false
+    if (sent) {
+      resultHouse.value = 'Azkaban'
+      quizFinished.value = true
+      azkabanAppealNeeded.value = false
+    } else {
+      azkabanAppealNeeded.value = true
+    }
+  }
+
+  /** ユーザーが明示的にアズカバン行きを選んだ場合に結果を確定する */
+  function sendToAzkaban() {
+    console.log('sendToAzkaban called — forcing Azkaban result')
+    pendingAzkaban.value = false
+    pendingSlytherin.value = false
+    azkabanAppealNeeded.value = false
+    resultHouse.value = 'Azkaban'
+    quizFinished.value = true
+    // 結果画面で表示するキャラクターを確実に取得しておく
+    void fetchCharacters()
+  }
+
   function resetQuiz() {
     housePoints.value = createInitialHousePoints()
     currentQuestionIndex.value = 0
     quizFinished.value = false
     resultHouse.value = DEFAULT_HOUSE
     pendingSlytherin.value = false
+    pendingAzkaban.value = false
+    azkabanAppealNeeded.value = false
   }
 
   return {
@@ -145,12 +182,16 @@ export const useQuizStore = defineStore('quiz', () => {
     currentQuestion,
     resultHouse,
     pendingSlytherin,
+    pendingAzkaban,
+    azkabanAppealNeeded,
     resultHouseLabel,
     resultComment,
     filteredCharacters,
     fetchCharacters,
     answerQuestion,
     confirmSlytherin,
+    processAzkabanTrial,
+    sendToAzkaban,
     resetQuiz
   }
 })
