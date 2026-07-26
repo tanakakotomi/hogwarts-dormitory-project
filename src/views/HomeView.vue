@@ -17,7 +17,6 @@ onMounted(() => {
 })
 
 function handleSelected(house: House) {
-  console.log('handleSelected:', house)
   quizStore.answerQuestion(house)
 }
 </script>
