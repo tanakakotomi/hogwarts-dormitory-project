@@ -146,3 +146,5 @@ export const SLYTHERIN_CONFIRM_OPTIONS = [
   { label: 'スリザリンは嫌だ！！もう一回診断して！', action: 'reset' },
   { label: 'スリザリンに行く', action: 'confirm' }
 ]
+
+export const AZKABAN_CONFIRM_TEXT = 'アズカバン行きになりそう・・！ウィゼンガモット（最高裁判所）で裁きを受ける必要があるよ！'
