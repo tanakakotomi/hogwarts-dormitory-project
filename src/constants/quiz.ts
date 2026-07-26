@@ -121,10 +121,20 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     options: [
 			{ label: '二フラー', house: 'Hufflepuff' },
       { label: 'ヘドウィグ', house: 'Gryffindor' },
-      { label: 'セストラル', house: 'Slytherin' },
+      { label: 'フォークス', house: 'Ravenclaw' },
       { label: 'ディメンター', house: 'Azkaban' },
-			{ label: 'ヒッポグリフ', house: 'Ravenclaw' },
+			{ label: 'ヒッポグリフ', house: 'Slytherin' },
       { label: 'ドビー', house: 'Gryffindor' }
+    ]
+  },
+  {
+    id: 10,
+    text: '好きな魔法界のお菓子は？',
+    options: [
+			{ label: '百味ビーンズ', house: 'Hufflepuff' },
+      { label: '蛙チョコ', house: 'Gryffindor' },
+      { label: 'ハグリッドの手作りケーキ', house: 'Ravenclaw' },
+      { label: 'フィフィ・フィズビー（舐めている間に、数センチ浮き上がれる炭酸入りキャンディ）', house: 'Slytherin' }
     ]
   }
 ]

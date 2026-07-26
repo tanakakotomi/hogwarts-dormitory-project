@@ -26,7 +26,7 @@ function handleSelected(house: House) {
       <h1 class="page-title">ホグワーツ寮診断</h1>
       <img :src="logoImage" alt="Bertie Bott's Every Flavour Beans" class="logo" />
     </div>
-    <p class="page-subtitle">9つの質問に答えて、<br />あなたもホグワーツの寮生になろう！</p>
+    <p class="page-subtitle">10個の質問に答えて、<br />あなたもホグワーツの寮生になろう！</p>
 
     <QuizQuestion
       v-if="!quizStore.quizFinished && !quizStore.pendingSlytherin && quizStore.currentQuestion"
