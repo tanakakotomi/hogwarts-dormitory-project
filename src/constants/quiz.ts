@@ -147,4 +147,4 @@ export const SLYTHERIN_CONFIRM_OPTIONS = [
   { label: 'スリザリンに行く', action: 'confirm' }
 ]
 
-export const AZKABAN_CONFIRM_TEXT = 'アズカバン行きになりそう・・！ウィゼンガモット（最高裁判所）で裁きを受ける必要があるよ！'
+export const AZKABAN_CONFIRM_TEXT = `アズカバン行きになりそう・・泣！ウィゼンガモット（魔法省最高裁判所）で裁きを受ける必要があるよ！`
