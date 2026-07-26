@@ -18,9 +18,13 @@ const optionImageMap: Record<string, string> = {
   ヘドウィグ: `${baseUrl}images/Hedwig.png`,
   ヒッポグリフ: `${baseUrl}images/Hippogriff.png`,
   二フラー: `${baseUrl}images/Niffler.png`,
-  セストラル: `${baseUrl}images/Thestral.png`,
+  フォークス: `${baseUrl}images/Fawkes.webp`,
   ドビー: `${baseUrl}images/Dobby.png`,
-  ディメンター: `${baseUrl}images/Dementor.png`
+  ディメンター: `${baseUrl}images/Dementor.png`,
+  百味ビーンズ: `${baseUrl}images/bertie_Bott's_every_flavour_beans.png`,
+  蛙チョコ: `${baseUrl}images/Chocolate_Frog.png`,
+  ハグリッドの手作りケーキ: `${baseUrl}images/HAPPEE_BIRTHDAE_HARRY.png`,
+  'フィフィ・フィズビー（舐めている間に、数センチ浮き上がれる炭酸入りキャンディ）': `${baseUrl}images/Fizzing_Whizzbees.png`
 }
 </script>
 
@@ -29,7 +33,7 @@ const optionImageMap: Record<string, string> = {
     <p class="question-count">質問 {{ questionNumber }} / {{ totalQuestions }}</p>
     <h2 class="question-title">{{ questionText }}</h2>
 
-    <div class="choices" :class="{ 'choices--two-column': questionNumber === 9 }">
+    <div class="choices" :class="{ 'choices--two-column': questionNumber === 9 || questionNumber === 10 }">
       <!-- v-forで選択肢を表示し、クリック時に選択した要素をemitで親コンポーネントへ渡す -->
       <button
         v-for="option in options"
