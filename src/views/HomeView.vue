@@ -64,9 +64,10 @@ function handleSelected(house: House) {
     <div v-else-if="quizStore.pendingAzkaban" class="question-panel">
       <img :src="wizengamotSrc" alt="ウィゼンガモット" class="wizengamot-img" />
       <h2 class="question-title">{{ AZKABAN_CONFIRM_TEXT }}</h2>
+      <div class="azkaban-info">アズカバンに行くorもう一度診断するかが決まるよ！</div>
       <div class="choices choices--two-column">
         <button class="choice-button" type="button" @click="quizStore.processAzkabanTrial()">
-          ウィゼンガモット（魔法界の最高裁判所）で裁判に参加しよう！
+          ウィゼンガモットで裁判に参加しよう！
         </button>
       </div>
     </div>
