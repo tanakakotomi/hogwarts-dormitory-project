@@ -82,7 +82,6 @@ export const useQuizStore = defineStore('quiz', () => {
       }))
     } catch (error) {
       loadError.value = 'キャラクターデータの取得に失敗しました。時間をおいて再試行してください。'
-      console.error(error)
     } finally {
       isLoadingCharacters.value = false
     }
@@ -103,7 +102,6 @@ export const useQuizStore = defineStore('quiz', () => {
   }
 
   function answerQuestion(house: House) {
-    console.log('answerQuestion called with', house)
     housePoints.value[house] += 1
 
     if (currentQuestionIndex.value < questions.length - 1) {
@@ -151,7 +149,6 @@ export const useQuizStore = defineStore('quiz', () => {
 
   /** ユーザーが明示的にアズカバン行きを選んだ場合に結果を確定する */
   function sendToAzkaban() {
-    console.log('sendToAzkaban called — forcing Azkaban result')
     pendingAzkaban.value = false
     pendingSlytherin.value = false
     azkabanAppealNeeded.value = false
